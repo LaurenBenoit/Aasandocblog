@@ -1,11 +1,12 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Post(models.Model):
-    name = models.ForeignKey('auth.User')
+    name = models.ForeignKey(User)
     specialization = models.CharField(max_length=200)
     history = models.TextField()
     added_date = models.DateTimeField(
@@ -18,4 +19,4 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.name.username
