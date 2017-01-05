@@ -6,17 +6,11 @@
         <div>
             <h1><a href="">Aasan doctors</a></h1>
         </div>
-
-        <div>
-            <p>published: 31.12.2016, 9:16 pm</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
+        {% for post in posts %}
+        <p>Added to AD: {{ post.added_date }}</p>
+        <h1><a href="">{{ post.name }}</a></h1>
+        <p>Specialization = {{ post.specialization|linebreaksbr }}</p>
+         <p>History = {{ post.history|linebreaksbr }}</p>
+        {% endfor %}
     </body>
 </html>
