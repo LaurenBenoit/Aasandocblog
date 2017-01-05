@@ -1,16 +1,34 @@
+{% load staticfiles %}
 <html>
     <head>
         <title>Aasan doc blog</title>
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
     </head>
     <body>
-        <div>
-            <h1><a href="">Aasan doctors</a></h1>
+    <div class="page-header">
+        <h1><a href="/">Aasan doctors</a></h1>
+    </div>
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>Added to AD: {{ post.added_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.name }}</a></h1>
+                   <p>Specialization = {{ post.specialization|linebreaksbr }}</p>
+                    <p>History = {{ post.history|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
         </div>
-        {% for post in posts %}
-        <p>Added to AD: {{ post.added_date }}</p>
-        <h1><a href="">{{ post.name }}</a></h1>
-        <p>Specialization = {{ post.specialization|linebreaksbr }}</p>
-         <p>History = {{ post.history|linebreaksbr }}</p>
-        {% endfor %}
+    </div>
+<   /div>
+
+
     </body>
 </html>
